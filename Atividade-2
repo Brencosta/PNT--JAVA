@@ -1,0 +1,109 @@
+import random
+
+# 1. Calculadora Simples
+def calculadora_simples(num1, num2, operacao):
+    if operacao == '+':
+        return num1 + num2
+    elif operacao == '-':
+        return num1 - num2
+    elif operacao == '*':
+        return num1 * num2
+    elif operacao == '/':
+        if num2 != 0:
+            return num1 / num2
+        else:
+            return "Erro! Divisão por zero."
+    else:
+        return "Operação inválida!"
+
+# 2. Conversor de Unidades
+def km_para_milhas(km):
+    return km * 0.621371
+
+def metros_para_centimetros(metros):
+    return metros * 100
+
+def litros_para_mililitros(litros):
+    return litros * 1000
+
+# 3. Contagem de Caracteres
+def contar_caracteres(frase):
+    return len(frase.replace(" ", ""))
+
+# 4. Calculadora de Média
+def calcular_media(nota1, nota2, nota3):
+    media = (nota1 + nota2 + nota3) / 3
+    if media >= 7:
+        return f"Média: {media}. Aluno aprovado!"
+    else:
+        return f"Média: {media}. Aluno reprovado!"
+
+# 5. Gerador de Tabuada
+def gerar_tabuada(numero):
+    for i in range(1, 11):
+        print(f"{numero} x {i} = {numero * i}")
+
+# 6. Contador de Vogais
+def contar_vogais(palavra_ou_frase):
+    palavra_ou_frase = palavra_ou_frase.lower()
+    contador = 0
+    for char in palavra_ou_frase:
+        if char in 'aeiou':
+            contador += 1
+    return contador
+
+# 7. Simulador de Dados
+def rolar_dado():
+    return random.randint(1, 6)
+
+# 8. Verificador de Palíndromos
+def verificar_palindromo(palavra):
+    palavra_invertida = palavra[::-1]
+    return palavra.lower() == palavra_invertida.lower()
+
+
+# Testando as funções com exemplos
+
+# 1. Calculadora Simples
+num1 = float(input("Digite o primeiro número: "))
+num2 = float(input("Digite o segundo número: "))
+operacao = input("Escolha a operação (+, -, *, /): ")
+print(calculadora_simples(num1, num2, operacao))
+
+# 2. Conversor de Unidades
+km = float(input("Digite o valor em quilômetros: "))
+print(f"Milhas: {km_para_milhas(km)}")
+
+metros = float(input("Digite o valor em metros: "))
+print(f"Centímetros: {metros_para_centimetros(metros)}")
+
+litros = float(input("Digite o valor em litros: "))
+print(f"Mililitros: {litros_para_mililitros(litros)}")
+
+# 3. Contagem de Caracteres
+frase = input("Digite uma frase: ")
+print(f"Número de caracteres (sem espaços): {contar_caracteres(frase)}")
+
+# 4. Calculadora de Média
+nota1 = float(input("Digite a primeira nota: "))
+nota2 = float(input("Digite a segunda nota: "))
+nota3 = float(input("Digite a terceira nota: "))
+print(calcular_media(nota1, nota2, nota3))
+
+# 5. Gerador de Tabuada
+numero = int(input("Digite um número para gerar a tabuada: "))
+gerar_tabuada(numero)
+
+# 6. Contador de Vogais
+palavra_ou_frase = input("Digite uma palavra ou frase: ")
+print(f"Número de vogais: {contar_vogais(palavra_ou_frase)}")
+
+# 7. Simulador de Dados
+print(f"Resultado do dado: {rolar_dado()}")
+
+# 8. Verificador de Palíndromos
+palavra = input("Digite uma palavra para verificar se é um palíndromo: ")
+if verificar_palindromo(palavra):
+    print("A palavra é um palíndromo!")
+else:
+    print("A palavra não é um palíndromo!")
